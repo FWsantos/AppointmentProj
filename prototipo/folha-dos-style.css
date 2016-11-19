@@ -1,0 +1,33 @@
+body{
+	background-color: #212121;
+	color: #fff;
+}
+.table tbody tr{
+	transition: background-color .5s, font-size .3s;
+}
+.table tbody tr:hover{
+	background-color: #5c5c5c;
+	font-size: 20px;
+}
+.modal.fade{
+	background-color: #212121;
+	color: #fff;	
+}
+tr th{
+	padding-top: 200px;
+}
+th .btn{
+	background-color: #212121;
+	border-color: #337AB7;
+	border-radius: 50%;
+	float: right;
+	transition: background-color .5s, font-size .3s;
+
+}
+th .btn:hover{
+	background-color: #337AB7;
+	font-size: 20px;	
+}
+.container{
+	background-color: #000;
+}

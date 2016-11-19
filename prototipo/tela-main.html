@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Appoitment</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="folha-dos-style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<!-- JQuery -->
+	<script>
+		$(document).ready(function(){
+			$('.glyphicon-option-horizontal').tooltip({title: "Mais", placement: "bottom"});
+			$('.add').tooltip({title: "Nova Atividade", placement: "bottom"});
+			$('.glyphicon-pushpin').tooltip({title: "Marcar Atividade como concluida", placement: "right"})
+		});
+	</script>
+	<!-- Angular -->
+	<script>
+		var app = angular.module("calendario", []);
+
+		app.controller("calendarioCtrl", function($scope) {
+			$scope.atividades = [
+			{nome:'Prova de Matemática', data:'Sabádo, 19/11', hora:'8:00', completo:false},
+			{nome:'Missa', data:'Domingo, 20/11', hora:'18:00', completo:false},
+			{nome:'Super Mercado', data:'Segunda, 21/11', hora:'9:00', completo:false},
+			{nome:'Reunião', data:'Segunda, 21/11', hora:'15:00', completo:false},
+			{nome:'Pular da Ponte', data:'Terça, 22/11', hora:'00:00', completo:false},
+
+			];
+			$scope.adicionar = function (att) {
+				$scope.atividades.push(angular.copy(att));
+				delete $scope.atividade;
+			};
+		});
+	</script>
+
+</head>
+<body ng-app="calendario" ng-controller='calendarioCtrl'>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th><button class="btn add" data-toggle="modal" data-target=" #modal-insert">+</button></th>
+				<th>Atividade</th>
+				<th>Data</th>
+				<th>Hora</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='atividade in atividades'>
+				<td ng-click='atividade.completo = true'>
+					<span ng-show='atividade.completo' class="glyphicon glyphicon-ok"></span>
+					<a href="#"><span ng-show='!(atividade.completo)' class="glyphicon glyphicon-pushpin"></span></a>
+				</td>
+				<td>{{atividade.nome}}</td>
+				<td>{{atividade.data}}</td>
+				<td>{{atividade.hora}}</td>
+				<td><a href="#"><span class="glyphicon glyphicon-option-horizontal" data-toggle="modal" data-target=" #modal-opcoes"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="container">
+		<!-- Modal criar atividade -->
+		<div class="modal fade" id="modal-insert" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337AB7;">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Criar nova atividade</h4>
+					</div>
+					<div class="modal-body form-group col-md-8 text-center">
+						<input type="text" class="form-control" ng-model="atividade.nome" placeholder="Nome da Atividade">
+						<input type="text" class="form-control" ng-model="atividade.data" placeholder="Dia da Semana, dia do mês/mês">
+						<input type="text" class="form-control" ng-model="atividade.hora" placeholder="Hora">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionar(atividade)" ng-disabled="!(atividade.nome) || !(atividade.data) || !(atividade.hora)">Concluido</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal Opcoes da atividade -->
+		<div class="modal fade" id="modal-opcoes" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #337AB7;">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Opções da atividade</h4>
+					</div>
+					<div class="modal-body form-group col-md-8 text-center">
+						<i><h2 style="color: #000;">Desculpa ai, mas isso fica pra depois.</h2></i>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionar(atividade)" ng-disabled="!(atividade.nome) || !(atividade.data) || !(atividade.hora)">Concluido</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>	                               
