@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ '/static/bootstrap/css/darfly.bootstrap.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/stylesheets/style.css'|url }}">
+
+<title>{% block title %}Welcome{% endblock %} — Appointment</title>
+<body>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li{% if this._path == '/' %} class="active"{% endif
+          %}><a href="{{ '/'|url }}">Appointment</a></li>
+          {% for href, title in [
+          ['/posts', 'Posts'],
+          ] %}
+          <li{% if this.is_child_of(href) %} class="active"{% endif
+          %}><a href="{{ href|url }}">{{ title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <br>
+  <div class="page">
+    {% block body %}{% endblock %}
+  </div>
+  <footer>
+    &copy; Copyright 2016 by Los Putos.
+  </footer>
+<script type="text/javascript" href="{{ '/static/javascripts/jquery.js'|url }}"></script>
+<script type="text/javascript" href="{{ '/static/bootstrap/js/bootstrap.js'|url }}"></script>
+</body>

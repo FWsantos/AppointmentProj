@@ -1,0 +1,24 @@
+title: Instalação
+---
+pub_date: 2016-12-29
+---
+author: FWsantos
+---
+body:
+
+Para poder instalar  a versão Appointment com Exprees, é necessário  ter NodeJS na sua máquina.
+Os pacotes para instalação em diferentes sistemas operacionais estão disponíveis em https://nodejs.org/en/download/ .
+
+Já com Node na sua máquina:
+
+1. Baixe o arquivo zip ou dê git clone no diretório AppointmentProj.
+
+2. Acesse o branch 'A_ZONA' : <code>git checkout A_ZONA</code>.
+
+3. Abra o terminal, acesse o diretório e dentro dele digite o comando <code>npm install</code>. Ele irá instalar as dependências.
+
+4. Agora vamos testá-lo em localhost. Para isso vamos usar o <b>nodemon</b>. Se não tiver ele instale com o comando <code>npm install nodemon</code>. Quando terminar  instalação ele irá apresentar a árvore de pastas.
+
+5. Digite <code>nodemon</code>. Depois que aparecer <code>[nodemon] starting `node ./bin/www`</code>, acesse o navegador com a url http://localhost:3000/.
+
+Pronto já dá pra ver alguma coisa. Para mais informações entre em contato com Los Putos.

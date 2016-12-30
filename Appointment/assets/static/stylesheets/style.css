@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lemonada');
+.page{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.nav li{
+  font-family: 'Lemonada', cursive;
+}
+
+code{
+	background-color: #000;
+	color: #0f0;
+}
