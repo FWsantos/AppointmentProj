@@ -1,0 +1,45 @@
+/*body {
+  background-color: #212121;
+  color: #fff;
+}
+
+.table tbody tr {
+  transition: background-color .5s, font-size .3s;
+}
+
+.table tbody tr:hover {
+  background-color: #5c5c5c;
+}
+
+.modal.fade {
+  background-color: #212121;
+  color: #fff;
+}
+
+tr th {
+  padding-top: 200px;
+}
+
+th .btn {
+  background-color: #212121;
+  border-color: #337AB7;
+  border-radius: 50%;
+   float: right; 
+  transition: background-color .5s, font-size .3s;
+}
+
+th .btn:hover {
+  background-color: #337AB7;
+}
+
+.container {
+  background-color: #000;
+}
+
+td input {
+  background-color: #212121;
+  border: 0.5px #fff solid;
+  border-radius: 5%;
+  color: #fff;
+}
+*/
