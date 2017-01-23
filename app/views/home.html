@@ -1,0 +1,61 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <button class="btn add" ng-click="add = true">+</button>
+            </th>
+            <th>Atividade</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-show='add'>
+            <td></td>
+            <td>
+                <input type="text" placeholder="Atividade" ng-model="atividade.nome">       
+            </td>
+            <td>
+                <input type="text" placeholder="Data" ng-model="atividade.data">
+            </td>
+            <td>
+                <input type="text" placeholder="Hora" ng-model="atividade.hora">
+            </td>
+            <td>
+            <a href="#/home" ng-click="adicionar(atividade)" ng-disabled="!(atividade.nome) || !(atividade.data) || !(atividade.hora)"><span class="glyphicon glyphicon-chevron-right" ng-click="add=false"> </span></a>
+            </td>
+        </tr>
+        <tr ng-repeat='atividade in atividades'>
+            <td ng-click='atividade.completo = true'>
+                <span ng-show='atividade.completo' class="glyphicon glyphicon-ok"></span>
+                <a href="#/home"><span ng-show='!(atividade.completo)' class="glyphicon glyphicon-pushpin"></span></a>
+            </td>
+            <td>{{atividade.nome}}</td>
+            <td>{{atividade.data}}</td>
+            <td>{{atividade.hora}}</td>
+            <td><a href="#/home"><span class="glyphicon glyphicon-option-horizontal" data-toggle="modal" data-target=" #modal-opcoes"></span></a></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+      $('.glyphicon-option-horizontal').tooltip({
+        title: "Mais",
+        placement: "bottom"
+    });
+      $('.add').tooltip({
+        title: "Nova Atividade",
+        placement: "bottom"
+    });
+      $('.glyphicon-pushpin').tooltip({
+        title: "Marcar Atividade como concluida",
+        placement: "right"
+    });
+      $('.glyphicon-chevron-right').tooltip({
+        title: "Adicionar a lista",
+        placement: "bottom"
+    })
+  });
+</script>
